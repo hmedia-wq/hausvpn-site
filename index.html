@@ -1,0 +1,174 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>HausVPN — Private by design. Freedom by choice.</title>
+<meta name="description" content="A quiet, fast WireGuard VPN from HAUS GROUP. Strict no-logs, kill switch, auto-connect on untrusted networks. Built for a life without borders.">
+<meta property="og:title" content="HausVPN — Private by design. Freedom by choice.">
+<meta property="og:description" content="A quiet, fast WireGuard VPN. Strict no-logs. Built for a life without borders.">
+<meta property="og:type" content="website">
+<style>
+:root{--bg:#0A0A0B;--panel:#141417;--line:#26262B;--teal:#3FD8C6;--gold:#C9B08A;--text:#F2F1EE;--muted:#8B8B92}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--text);font:16px/1.65 -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;-webkit-font-smoothing:antialiased}
+a{color:var(--teal);text-decoration:none}
+a:hover{text-decoration:underline}
+.wrap{max-width:1040px;margin:0 auto;padding:0 24px}
+
+nav{display:flex;align-items:center;justify-content:space-between;padding:26px 0;border-bottom:1px solid var(--line)}
+.mark{display:flex;align-items:center;gap:12px}
+.word{font-family:Didot,"Bodoni MT",Georgia,serif;letter-spacing:.24em;font-size:17px;color:var(--text)}
+nav .links{display:flex;gap:26px;font-size:14px;color:var(--muted)}
+nav .links a{color:var(--muted)}
+
+.hero{padding:96px 0 84px;text-align:center;position:relative;overflow:hidden}
+.hero::after{content:"";position:absolute;left:50%;top:40px;width:760px;height:760px;transform:translateX(-50%);
+  background:radial-gradient(circle,rgba(63,216,198,.13) 0%,rgba(63,216,198,0) 62%);pointer-events:none}
+.hero h1{position:relative;font-family:Didot,"Bodoni MT",Georgia,serif;font-weight:400;font-size:clamp(42px,7vw,78px);line-height:1.06;margin:26px 0 0;letter-spacing:.01em}
+.hero .tag{position:relative;margin-top:22px;color:var(--muted);font-size:clamp(15px,2vw,19px);letter-spacing:.16em;text-transform:uppercase}
+.hero .lead{position:relative;max-width:620px;margin:30px auto 0;color:#CFCEC9;font-size:18px}
+.cta{position:relative;margin-top:40px;display:flex;gap:14px;justify-content:center;flex-wrap:wrap}
+.btn{display:inline-block;padding:14px 30px;border-radius:10px;font-weight:600;font-size:15px}
+.btn.primary{background:var(--teal);color:#07211E}
+.btn.primary:hover{text-decoration:none;filter:brightness(1.08)}
+.btn.ghost{border:1px solid var(--line);color:var(--text)}
+.btn.ghost:hover{text-decoration:none;border-color:var(--teal)}
+.note{position:relative;margin-top:18px;color:var(--muted);font-size:13px}
+
+section{padding:74px 0;border-top:1px solid var(--line)}
+h2{font-family:Didot,"Bodoni MT",Georgia,serif;font-weight:400;font-size:34px;margin:0 0 10px}
+.sub{color:var(--muted);margin:0 0 38px}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:18px}
+.card{background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:26px}
+.card h3{margin:14px 0 8px;font-size:17px;font-weight:600}
+.card p{margin:0;color:#B9B8B4;font-size:15px}
+.ic{width:34px;height:34px;color:var(--teal)}
+
+.stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:18px;text-align:center}
+.stat .n{font-family:Didot,"Bodoni MT",Georgia,serif;font-size:40px;color:var(--gold)}
+.stat .l{color:var(--muted);font-size:13px;letter-spacing:.12em;text-transform:uppercase;margin-top:4px}
+
+.locs{display:flex;flex-wrap:wrap;gap:10px}
+.loc{border:1px solid var(--line);border-radius:999px;padding:9px 18px;font-size:14px;color:#CFCEC9;background:var(--panel)}
+
+.honest{background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:28px 30px}
+.honest li{color:#B9B8B4;margin-bottom:8px}
+
+footer{border-top:1px solid var(--line);padding:38px 0 64px;color:var(--muted);font-size:14px;display:flex;justify-content:space-between;gap:18px;flex-wrap:wrap}
+footer a{color:var(--muted)}
+</style>
+</head>
+<body>
+
+<div class="wrap">
+  <nav>
+    <div class="mark">
+      <svg width="26" height="30" viewBox="0 0 60 70" fill="none" aria-hidden="true">
+        <path d="M30 3 L55 14 V38 C55 52 44 62 30 67 C16 62 5 52 5 38 V14 Z" stroke="#C9B08A" stroke-width="2.4" fill="none"/>
+        <text x="30" y="45" text-anchor="middle" font-family="Didot,Georgia,serif" font-size="30" fill="#C9B08A">H</text>
+      </svg>
+      <span class="word">HAUSVPN</span>
+    </div>
+    <div class="links">
+      <a href="#features">Features</a>
+      <a href="#locations">Locations</a>
+      <a href="privacy.html">Privacy</a>
+    </div>
+  </nav>
+</div>
+
+<div class="wrap hero">
+  <div class="tag">Architecture of privacy</div>
+  <h1>Private by design.<br>Freedom by choice.</h1>
+  <p class="lead">A quiet, fast VPN built on WireGuard. One tap, and your traffic leaves your device
+  encrypted — invisible to the café, the airport, the hotel, and your internet provider.</p>
+  <div class="cta">
+    <a class="btn primary" href="#features">See how it works</a>
+    <a class="btn ghost" href="privacy.html">Read the no-logs policy</a>
+  </div>
+  <div class="note">Android app in preparation · iOS to follow</div>
+</div>
+
+<section id="features">
+  <div class="wrap">
+    <h2>What it actually does</h2>
+    <p class="sub">No countdown timers. No fake threat counters. Four things, done properly.</p>
+    <div class="grid">
+      <div class="card">
+        <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 2 4 6v6c0 5 3.4 8.6 8 10 4.6-1.4 8-5 8-10V6l-8-4z"/></svg>
+        <h3>Strict no-logs</h3>
+        <p>No browsing history, no DNS records, no connection timestamps, no source IP. We cannot hand over what we never hold.</p>
+      </div>
+      <div class="card">
+        <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M13 2 4 14h6l-1 8 9-12h-6l1-8z"/></svg>
+        <h3>WireGuard speed</h3>
+        <p>A lean modern protocol. Connects in about a second, stays fast on mobile, and reconnects cleanly as you move between networks.</p>
+      </div>
+      <div class="card">
+        <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="4" y="10" width="16" height="10" rx="2"/><path d="M8 10V7a4 4 0 0 1 8 0v3"/></svg>
+        <h3>Kill switch</h3>
+        <p>If the tunnel ever drops, your internet is blocked instead of silently exposed. Auto-connect handles untrusted Wi-Fi for you.</p>
+      </div>
+      <div class="card">
+        <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c2.5 2.7 3.8 5.7 3.8 9S14.5 18.3 12 21c-2.5-2.7-3.8-5.7-3.8-9S9.5 5.7 12 3z"/></svg>
+        <h3>Nothing hidden</h3>
+        <p>A live panel shows protocol, server, IP, session duration and data transferred. You can always see exactly what is happening.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap stats">
+    <div class="stat"><div class="n">0</div><div class="l">Activity logs kept</div></div>
+    <div class="stat"><div class="n">0</div><div class="l">Ad SDKs in the app</div></div>
+    <div class="stat"><div class="n">~1s</div><div class="l">Typical connect time</div></div>
+    <div class="stat"><div class="n">18+</div><div class="l">Age requirement</div></div>
+  </div>
+</section>
+
+<section id="locations">
+  <div class="wrap">
+    <h2>Locations</h2>
+    <p class="sub">Starting in New York, expanding city by city rather than padding a number.</p>
+    <div class="locs">
+      <span class="loc">New York, US &middot; live</span>
+      <span class="loc">Los Angeles, US</span>
+      <span class="loc">London, UK</span>
+      <span class="loc">Frankfurt, DE</span>
+      <span class="loc">Singapore, SG</span>
+      <span class="loc">Toronto, CA</span>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <h2>What HausVPN is not</h2>
+    <p class="sub">The honest part most VPN sites leave out.</p>
+    <div class="honest">
+      <ul>
+        <li>It does not make you anonymous or untraceable.</li>
+        <li>It does not hide your activity from services you sign in to.</li>
+        <li>It is not a substitute for good security habits, updates, or two-factor authentication.</li>
+        <li>It is not a shield for illegal activity, and VPN use is restricted in some countries — check your local law.</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<div class="wrap">
+  <footer>
+    <div>HAUS GROUP LLC &middot; Built for a life without borders.</div>
+    <div>
+      <a href="privacy.html">Privacy</a> &nbsp;·&nbsp;
+      <a href="delete-account.html">Delete account</a> &nbsp;·&nbsp;
+      <a href="mailto:support@hausvpn.com">support@hausvpn.com</a>
+    </div>
+  </footer>
+</div>
+
+</body>
+</html>

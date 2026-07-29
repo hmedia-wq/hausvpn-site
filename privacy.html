@@ -1,0 +1,119 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>HausVPN — Privacy Policy</title>
+<style>
+:root{--bg:#0A0A0B;--panel:#141417;--line:#26262B;--teal:#3FD8C6;--gold:#C9B08A;--text:#F2F1EE;--muted:#8B8B92}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--text);font:16px/1.65 -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif}
+.wrap{max-width:760px;margin:0 auto;padding:56px 22px 96px}
+.brand{font-family:Didot,"Bodoni MT",Georgia,serif;letter-spacing:.22em;font-size:22px;color:var(--gold)}
+h1{font-family:Didot,"Bodoni MT",Georgia,serif;font-weight:400;font-size:38px;margin:26px 0 6px}
+.sub{color:var(--muted);font-size:14px;margin-bottom:38px}
+h2{font-size:19px;margin:38px 0 10px;color:var(--teal);font-weight:600}
+h3{font-size:16px;margin:24px 0 6px;font-weight:600}
+p,li{color:#D8D7D3}
+a{color:var(--teal)}
+ul{padding-left:20px}
+table{width:100%;border-collapse:collapse;margin:14px 0;font-size:15px}
+th,td{border:1px solid var(--line);padding:10px 12px;text-align:left;vertical-align:top}
+th{background:var(--panel);color:var(--text);font-weight:600}
+.box{background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:18px 20px;margin:22px 0}
+footer{margin-top:56px;border-top:1px solid var(--line);padding-top:20px;color:var(--muted);font-size:14px}
+</style>
+</head>
+<body>
+<div class="wrap">
+<div class="brand">HAUSVPN</div>
+<h1>Privacy Policy</h1>
+<div class="sub">HAUS GROUP LLC &middot; Last updated 29 July 2026</div>
+
+<div class="box">
+<strong>The short version.</strong> HausVPN does not log what you do online. We do not record the websites you visit,
+the apps you use, the DNS queries you make, or the IP addresses you connect from. We do not sell data, we do not
+run advertising SDKs, and there are no third-party trackers inside the app.
+</div>
+
+<h2>1. Who we are</h2>
+<p>HausVPN is operated by HAUS GROUP LLC ("we", "us"). If you have a question about this policy, or want your data
+deleted, write to <a href="mailto:support@hausvpn.com">support@hausvpn.com</a>.</p>
+
+<h2>2. What we do <em>not</em> collect</h2>
+<ul>
+<li>Browsing history, page titles, or URLs</li>
+<li>DNS query contents</li>
+<li>Traffic contents of any kind</li>
+<li>The source IP address you connect to us from</li>
+<li>Timestamps tied to individual connections</li>
+<li>Bandwidth logs attributable to an individual user</li>
+<li>Precise device location</li>
+<li>Your device's address book, photos, SMS, or call log</li>
+</ul>
+<p>We cannot hand over what we do not hold. If we ever receive a lawful request for user activity data, we have
+nothing responsive to produce.</p>
+
+<h2>3. What we do collect</h2>
+<table>
+<tr><th>Data</th><th>Why</th><th>Kept for</th></tr>
+<tr><td>Account identifier (email address, if you create an account)</td><td>So you can sign in on more than one device and restore a purchase</td><td>Until you delete your account</td></tr>
+<tr><td>Purchase and subscription status</td><td>To know whether your plan is active. Payments are processed by Google Play; we never see your card details.</td><td>As required by tax law (typically 7 years for the transaction record only)</td></tr>
+<tr><td>Device WireGuard public key</td><td>It is what lets your device authenticate to a gateway. It is a random public value and reveals nothing about you.</td><td>Until the device is removed or the account is deleted</td></tr>
+<tr><td>Crash reports and app version (aggregate)</td><td>To fix crashes. Contains no browsing data.</td><td>90 days</td></tr>
+<tr><td>Aggregate server load per gateway</td><td>To keep servers from overloading. Not attributable to any individual.</td><td>30 days</td></tr>
+</table>
+
+<h2>4. Analytics and advertising</h2>
+<p>HausVPN contains no advertising SDKs and shows no ads. We do not use the Android Advertising ID. We do not build
+profiles, and we do not share data with data brokers, advertisers, or analytics networks.</p>
+
+<h2>5. How your traffic is handled</h2>
+<p>When you connect, your device establishes an encrypted WireGuard tunnel to a gateway you select. Traffic exits
+that gateway to the public internet using a shared address, so it cannot be traced back to a single user by the
+destination site. Gateway servers keep no persistent activity logs; connection state lives in memory and is gone
+when the session ends or the machine restarts.</p>
+<p>Encryption protects traffic between your device and our gateway. It does not encrypt what happens after the
+gateway, and it does not hide your identity from any service you log in to.</p>
+
+<h2>6. Sub-processors</h2>
+<ul>
+<li><strong>Server hosting providers</strong> — provide the physical machines our gateways run on. They can see that
+a machine exists and how much bandwidth it uses in aggregate; they do not have our tunnel keys.</li>
+<li><strong>Google Play Billing</strong> — processes purchases. Google's own privacy policy applies to that transaction.</li>
+</ul>
+<p>We do not use any other third party to process personal data.</p>
+
+<h2>7. Your rights</h2>
+<p>Wherever you live, you can ask us to show you what we hold, correct it, or delete it. Under the GDPR (EEA/UK) and
+the CCPA/CPRA (California) you additionally have the right to data portability, the right to object, and the right
+not to be discriminated against for exercising these rights. We do not sell or share personal information as those
+terms are defined by the CCPA.</p>
+<p>To exercise any of these, use <strong>Settings → Delete my account</strong> in the app, or email
+<a href="mailto:support@hausvpn.com">support@hausvpn.com</a>. See also our
+<a href="delete-account.html">account deletion page</a>.</p>
+
+<h2>8. Children</h2>
+<p>HausVPN is not directed at children and is intended for users aged 18 and over. We do not knowingly collect data
+from children. If you believe a child has created an account, write to us and we will delete it.</p>
+
+<h2>9. Legal use</h2>
+<p>HausVPN is a privacy tool, not a shield for illegal activity. VPN use is restricted or regulated in some
+countries — it is your responsibility to know your local law. We will terminate accounts used for network abuse,
+including spam, port scanning, denial-of-service traffic, and intrusion attempts.</p>
+
+<h2>10. Security</h2>
+<p>Tunnels use WireGuard with ChaCha20-Poly1305 for data, Curve25519 for key exchange, and per-peer pre-shared keys.
+Private keys are generated on your device and never leave it. Our management endpoints are TLS-only.</p>
+
+<h2>11. Changes</h2>
+<p>If we change this policy in a way that affects what we collect, we will update the date at the top and notify
+active users in the app before the change takes effect.</p>
+
+<footer>
+HAUS GROUP LLC &middot; <a href="mailto:support@hausvpn.com">support@hausvpn.com</a><br>
+<a href="/">hausvpn.com</a>
+</footer>
+</div>
+</body>
+</html>
