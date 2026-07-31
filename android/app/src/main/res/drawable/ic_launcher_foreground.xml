@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="108dp"
+    android:height="108dp"
+    android:viewportWidth="108"
+    android:viewportHeight="108">
+    <!-- Shield mark, centred within the adaptive-icon safe zone. -->
+    <path
+        android:fillColor="#3FD8C6"
+        android:pathData="M54,30 L74,38 L74,56 C74,68 65,76 54,80 C43,76 34,68 34,56 L34,38 Z" />
+    <path
+        android:fillColor="#0A0A0B"
+        android:pathData="M54,44 L62,47 L62,57 C62,63 58,68 54,70 C50,68 46,63 46,57 L46,47 Z" />
+    <path
+        android:fillColor="#C9B08A"
+        android:pathData="M52.5,52 h3 v14 h-3 Z M48,57 h12 v3 h-12 Z" />
+</vector>
