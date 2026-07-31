@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 60 70" width="60" height="70">
+  <rect width="60" height="70" fill="#0A0A0B"/>
+  <path d="M30 4 L54 15 V38 C54 51 44 61 30 66 C16 61 6 51 6 38 V15 Z" fill="#141417" stroke="#C9B08A" stroke-width="3"/>
+  <text x="30" y="47" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif" font-size="34" font-weight="400" fill="#C9B08A">H</text>
+</svg>
