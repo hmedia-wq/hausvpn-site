@@ -76,7 +76,7 @@ nothing responsive to produce.</p>
 <table>
 <tr><th>Data</th><th>Why</th><th>Kept for</th></tr>
 <tr><td>Account identifier (email address, if you create an account)</td><td>So you can sign in on more than one device and restore a purchase</td><td>Until you delete your account</td></tr>
-<tr><td>Purchase and subscription status</td><td>To know whether your plan is active. Payments are processed by Google Play; we never see your card details.</td><td>As required by tax law (typically 7 years for the transaction record only)</td></tr>
+<tr><td>Purchase and subscription status</td><td>To know whether your plan is active. Payments are processed by the Apple App Store or Google Play; we never see your card details.</td><td>As required by tax law (typically 7 years for the transaction record only)</td></tr>
 <tr><td>Device WireGuard public key</td><td>It is what lets your device authenticate to a gateway. It is a random public value and reveals nothing about you.</td><td>Until the device is removed or the account is deleted</td></tr>
 <tr><td>Crash reports and app version (aggregate)</td><td>To fix crashes. Contains no browsing data.</td><td>90 days</td></tr>
 <tr><td>Aggregate server load per gateway</td><td>To keep servers from overloading. Not attributable to any individual.</td><td>30 days</td></tr>
@@ -98,7 +98,7 @@ gateway, and it does not hide your identity from any service you log in to.</p>
 <ul>
 <li><strong>Server hosting providers</strong> — provide the physical machines our gateways run on. They can see that
 a machine exists and how much bandwidth it uses in aggregate; they do not have our tunnel keys.</li>
-<li><strong>Google Play Billing</strong> — processes purchases. Google's own privacy policy applies to that transaction.</li>
+<li><strong>Apple App Store / Google Play Billing</strong> — processes purchases, depending on where you downloaded the app. Apple's or Google's own privacy policy applies to that transaction.</li>
 </ul>
 <p>We do not use any other third party to process personal data.</p>
 

@@ -57,7 +57,7 @@
     {
       "@type": "SoftwareApplication",
       "name": "HausVPN",
-      "operatingSystem": "Android",
+      "operatingSystem": "iOS, Android",
       "applicationCategory": "SecurityApplication",
       "description": "A quiet, fast WireGuard VPN. Strict no-logs, kill switch, auto-connect on untrusted networks.",
       "image": "https://hausvpn.com/og-image.png",
@@ -114,6 +114,33 @@ h2{font-family:Didot,"Bodoni MT",Georgia,serif;font-weight:400;font-size:34px;ma
 .honest{background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:28px 30px}
 .honest li{color:#B9B8B4;margin-bottom:8px}
 
+.badges{display:flex;gap:14px;justify-content:center;flex-wrap:wrap}
+.badge{display:flex;align-items:center;gap:12px;padding:11px 20px;border:1px solid var(--line);border-radius:12px;background:var(--panel);min-width:196px}
+a.badge:hover{text-decoration:none;border-color:var(--teal)}
+.badge svg{width:24px;height:24px;color:var(--text);flex:none}
+.badge .txt{display:flex;flex-direction:column;line-height:1.14;text-align:left}
+.badge .k{font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted)}
+.badge .s{font-size:16px;color:var(--text);font-weight:600;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif}
+.badge.coming{cursor:default}
+.soon{display:block;margin-top:16px;color:var(--muted);font-size:13px;letter-spacing:.02em}
+.soon .g{color:var(--gold)}
+
+.device-wrap{display:flex;justify-content:center;margin-top:8px}
+.device{width:300px;border:1px solid var(--line);border-radius:36px;background:#0E0E11;padding:14px;box-shadow:0 30px 90px rgba(0,0,0,.6)}
+.notch{width:116px;height:6px;background:var(--line);border-radius:99px;margin:6px auto 14px}
+.screen{border:1px solid var(--line);border-radius:24px;padding:22px 18px 24px;background:radial-gradient(circle at 50% -10%,rgba(63,216,198,.12),transparent 58%),#0A0A0B}
+.screen .top{display:flex;align-items:center;gap:9px;color:var(--muted);font-size:12px;letter-spacing:.2em}
+.dial{width:132px;height:132px;border-radius:50%;margin:22px auto 6px;display:flex;align-items:center;justify-content:center;
+  border:2px solid var(--teal);box-shadow:0 0 0 8px rgba(63,216,198,.06),0 0 34px rgba(63,216,198,.22) inset}
+.dial svg{width:44px;height:44px;color:var(--teal)}
+.state{text-align:center;color:var(--teal);font-size:14px;letter-spacing:.14em;text-transform:uppercase;margin-top:8px}
+.state .sub{display:block;color:var(--muted);font-size:12px;letter-spacing:.04em;text-transform:none;margin-top:4px}
+.rows{margin-top:20px;border-top:1px solid var(--line)}
+.row{display:flex;justify-content:space-between;padding:11px 2px;border-bottom:1px solid var(--line);font-size:13px}
+.row .l{color:var(--muted)}
+.row .v{color:#E7E6E2;font-variant-numeric:tabular-nums}
+.mock-note{text-align:center;color:var(--muted);font-size:12px;margin-top:16px}
+
 footer{border-top:1px solid var(--line);padding:38px 0 64px;color:var(--muted);font-size:14px;display:flex;justify-content:space-between;gap:18px;flex-wrap:wrap}
 footer a{color:var(--muted)}
 </style>
@@ -133,6 +160,7 @@ footer a{color:var(--muted)}
       <a href="#features">Features</a>
       <a href="#locations">Locations</a>
       <a href="privacy.html">Privacy</a>
+      <a href="#get">Get the app</a>
     </div>
   </nav>
 </div>
@@ -142,11 +170,18 @@ footer a{color:var(--muted)}
   <h1>Private by design.<br>Freedom by choice.</h1>
   <p class="lead">A quiet, fast VPN built on WireGuard. One tap, and your traffic leaves your device
   encrypted — invisible to the café, the airport, the hotel, and your internet provider.</p>
-  <div class="cta">
-    <a class="btn primary" href="#features">See how it works</a>
-    <a class="btn ghost" href="privacy.html">Read the no-logs policy</a>
+  <div class="cta badges">
+    <span class="badge coming">
+      <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M16.4 12.7c0-2 1.6-3 1.7-3.1-1-1.4-2.4-1.6-2.9-1.6-1.2-.1-2.4.7-3 .7-.6 0-1.6-.7-2.6-.7-1.3 0-2.6.8-3.3 2-1.4 2.4-.4 6 1 8 .7.9 1.4 2 2.5 1.9 1-.1 1.3-.6 2.5-.6s1.5.6 2.6.6 1.7-.9 2.4-1.8c.7-1 1-2 1-2-.1 0-2-.7-2.4-2.4zM14.5 6.4c.5-.7.9-1.6.8-2.5-.8 0-1.7.5-2.3 1.2-.5.6-.9 1.5-.8 2.4.9.1 1.7-.4 2.3-1.1z"/></svg>
+      <span class="txt"><span class="k">Coming soon to</span><span class="s">App Store</span></span>
+    </span>
+    <span class="badge coming">
+      <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M4 3.2v17.6c0 .5.5.8.9.5l9.4-8.8c.3-.3.3-.7 0-1L4.9 2.7c-.4-.3-.9 0-.9.5z" fill="#3FD8C6"/><path d="M14.3 12.5 17 15l3.5-2c.6-.4.6-1.3 0-1.7L17 9.3l-2.7 2.5c-.3.3-.3.5 0 .7z" fill="#C9B08A"/></svg>
+      <span class="txt"><span class="k">Coming soon to</span><span class="s">Google Play</span></span>
+    </span>
   </div>
-  <div class="note">Android app in preparation · iOS to follow</div>
+  <div class="soon">Launching on iOS and Android. Be first in line — <a href="mailto:support@hausvpn.com?subject=Notify%20me%20when%20HausVPN%20launches"><span class="g">get notified at launch</span></a>.</div>
+  <div class="note"><a href="#features">See how it works ↓</a></div>
 </div>
 
 <section id="features">
@@ -175,6 +210,35 @@ footer a{color:var(--muted)}
         <p>A live panel shows protocol, server, IP, session duration and data transferred. You can always see exactly what is happening.</p>
       </div>
     </div>
+  </div>
+</section>
+
+<section id="app">
+  <div class="wrap">
+    <h2>Nothing hidden, on one screen</h2>
+    <p class="sub">One tap to connect. A live panel shows exactly what is happening — no dark patterns, no mystery.</p>
+    <div class="device-wrap">
+      <div class="device">
+        <div class="notch"></div>
+        <div class="screen">
+          <div class="top">
+            <svg width="16" height="18" viewBox="0 0 60 70" fill="none" aria-hidden="true"><path d="M30 3 L55 14 V38 C55 52 44 62 30 67 C16 62 5 52 5 38 V14 Z" stroke="#C9B08A" stroke-width="3" fill="none"/></svg>
+            HAUSVPN
+          </div>
+          <div class="dial">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M12 2 4 6v6c0 5 3.4 8.6 8 10 4.6-1.4 8-5 8-10V6l-8-4z"/><path d="M9 12l2 2 4-4"/></svg>
+          </div>
+          <div class="state">Protected<span class="sub">New York · United States</span></div>
+          <div class="rows">
+            <div class="row"><span class="l">Protocol</span><span class="v">WireGuard</span></div>
+            <div class="row"><span class="l">Exit IP</span><span class="v">185.62.14.203</span></div>
+            <div class="row"><span class="l">Session</span><span class="v">01:24:37</span></div>
+            <div class="row"><span class="l">Transferred</span><span class="v">248.6 MB</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <p class="mock-note">Interface preview — final app design may vary.</p>
   </div>
 </section>
 
@@ -214,6 +278,24 @@ footer a{color:var(--muted)}
         <li>It is not a shield for illegal activity, and VPN use is restricted in some countries — check your local law.</li>
       </ul>
     </div>
+  </div>
+</section>
+
+<section id="get">
+  <div class="wrap" style="text-align:center">
+    <h2>Get HausVPN</h2>
+    <p class="sub">One subscription. Every device you own. No ads, no logs, no games.</p>
+    <div class="badges">
+      <span class="badge coming">
+        <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M16.4 12.7c0-2 1.6-3 1.7-3.1-1-1.4-2.4-1.6-2.9-1.6-1.2-.1-2.4.7-3 .7-.6 0-1.6-.7-2.6-.7-1.3 0-2.6.8-3.3 2-1.4 2.4-.4 6 1 8 .7.9 1.4 2 2.5 1.9 1-.1 1.3-.6 2.5-.6s1.5.6 2.6.6 1.7-.9 2.4-1.8c.7-1 1-2 1-2-.1 0-2-.7-2.4-2.4zM14.5 6.4c.5-.7.9-1.6.8-2.5-.8 0-1.7.5-2.3 1.2-.5.6-.9 1.5-.8 2.4.9.1 1.7-.4 2.3-1.1z"/></svg>
+        <span class="txt"><span class="k">Coming soon to</span><span class="s">App Store</span></span>
+      </span>
+      <span class="badge coming">
+        <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M4 3.2v17.6c0 .5.5.8.9.5l9.4-8.8c.3-.3.3-.7 0-1L4.9 2.7c-.4-.3-.9 0-.9.5z" fill="#3FD8C6"/><path d="M14.3 12.5 17 15l3.5-2c.6-.4.6-1.3 0-1.7L17 9.3l-2.7 2.5c-.3.3-.3.5 0 .7z" fill="#C9B08A"/></svg>
+        <span class="txt"><span class="k">Coming soon to</span><span class="s">Google Play</span></span>
+      </span>
+    </div>
+    <div class="soon">Want a nudge the day it goes live? <a href="mailto:support@hausvpn.com?subject=Notify%20me%20when%20HausVPN%20launches"><span class="g">Email us and we'll tell you first.</span></a></div>
   </div>
 </section>
 
