@@ -55,6 +55,7 @@ fun ConnectScreen(
 ) {
     val state by viewModel.uiState.collectAsState()
     var showConfigSheet by remember { mutableStateOf(false) }
+    var showSignIn by remember { mutableStateOf(false) }
 
     Column(
         modifier = Modifier
@@ -105,11 +106,31 @@ fun ConnectScreen(
 
         Spacer(Modifier.weight(1f))
 
-        TextButton(onClick = { showConfigSheet = true }) {
-            Text(
-                if (state.hasConfig) "Update server configuration" else "Add server configuration",
+        if (state.busy) {
+            androidx.compose.material3.CircularProgressIndicator(
                 color = HausTeal,
+                modifier = Modifier.size(28.dp),
             )
+            Spacer(Modifier.height(12.dp))
+        }
+
+        if (!state.signedIn) {
+            AccountButton("Sign in to HausVPN") { showSignIn = true }
+        } else {
+            Text(state.email ?: "", color = HausTextMuted, fontSize = 12.sp)
+            Spacer(Modifier.height(8.dp))
+            AccountButton(
+                if (state.hasConfig) "Refresh server" else "Get server automatically",
+                enabled = !state.busy,
+            ) { viewModel.provisionServer() }
+            Row {
+                TextButton(onClick = { showConfigSheet = true }) {
+                    Text("Paste config", color = HausTextMuted, fontSize = 13.sp)
+                }
+                TextButton(onClick = { viewModel.signOut() }) {
+                    Text("Sign out", color = HausTextMuted, fontSize = 13.sp)
+                }
+            }
         }
         Spacer(Modifier.height(16.dp))
     }
@@ -123,6 +144,78 @@ fun ConnectScreen(
             },
         )
     }
+
+    if (showSignIn) {
+        SignInDialog(
+            defaultBaseUrl = viewModel.defaultBaseUrl,
+            onDismiss = { showSignIn = false },
+            onSignIn = { url, email ->
+                viewModel.signIn(url, email)
+                showSignIn = false
+            },
+        )
+    }
+}
+
+@Composable
+private fun AccountButton(label: String, enabled: Boolean = true, onClick: () -> Unit) {
+    Box(
+        modifier = Modifier
+            .fillMaxWidth()
+            .clip(RoundedCornerShape(14.dp))
+            .background(if (enabled) HausTeal else HausSurfaceAlt)
+            .clickable(enabled = enabled, onClick = onClick)
+            .padding(vertical = 16.dp),
+        contentAlignment = Alignment.Center,
+    ) {
+        Text(label, color = if (enabled) HausSurface else HausTextMuted, fontWeight = FontWeight.SemiBold)
+    }
+}
+
+@Composable
+private fun SignInDialog(
+    defaultBaseUrl: String,
+    onDismiss: () -> Unit,
+    onSignIn: (String, String) -> Unit,
+) {
+    var url by remember { mutableStateOf(defaultBaseUrl) }
+    var email by remember { mutableStateOf("") }
+    androidx.compose.material3.AlertDialog(
+        onDismissRequest = onDismiss,
+        confirmButton = {
+            TextButton(onClick = { if (url.isNotBlank() && email.isNotBlank()) onSignIn(url, email) }) {
+                Text("Sign in", color = HausTeal)
+            }
+        },
+        dismissButton = { TextButton(onClick = onDismiss) { Text("Cancel", color = HausTextMuted) } },
+        title = { Text("Sign in", color = HausTextPrimary) },
+        text = {
+            Column {
+                Text(
+                    "Enter your HausVPN gateway URL and email. A server config is " +
+                        "provisioned automatically once you're signed in.",
+                    color = HausTextMuted, fontSize = 13.sp,
+                )
+                Spacer(Modifier.height(12.dp))
+                OutlinedTextField(
+                    value = url, onValueChange = { url = it },
+                    modifier = Modifier.fillMaxWidth(),
+                    singleLine = true,
+                    placeholder = { Text("http://YOUR_SERVER_IP:8080") },
+                    label = { Text("Gateway URL") },
+                )
+                Spacer(Modifier.height(8.dp))
+                OutlinedTextField(
+                    value = email, onValueChange = { email = it },
+                    modifier = Modifier.fillMaxWidth(),
+                    singleLine = true,
+                    placeholder = { Text("you@example.com") },
+                    label = { Text("Email") },
+                )
+            }
+        },
+        containerColor = HausSurface,
+    )
 }
 
 @Composable

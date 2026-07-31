@@ -26,6 +26,9 @@ data class VpnUiState(
     val rxBytes: Long = 0,
     val txBytes: Long = 0,
     val hasConfig: Boolean = false,
+    val signedIn: Boolean = false,
+    val email: String? = null,
+    val busy: Boolean = false,
 )
 
 /**
@@ -40,7 +43,11 @@ class VpnViewModel(app: Application) : AndroidViewModel(app) {
     private val prefs = app.getSharedPreferences(PREFS, Context.MODE_PRIVATE)
 
     private val _uiState = MutableStateFlow(
-        VpnUiState(hasConfig = prefs.getString(KEY_CONFIG, null) != null)
+        VpnUiState(
+            hasConfig = prefs.getString(KEY_CONFIG, null) != null,
+            signedIn = prefs.getString(KEY_TOKEN, null) != null,
+            email = prefs.getString(KEY_EMAIL, null),
+        )
     )
     val uiState: StateFlow<VpnUiState> = _uiState.asStateFlow()
 
@@ -50,6 +57,70 @@ class VpnViewModel(app: Application) : AndroidViewModel(app) {
     }
 
     fun hasConfig(): Boolean = prefs.getString(KEY_CONFIG, null) != null
+
+    val defaultBaseUrl: String
+        get() = prefs.getString(KEY_BASE_URL, "") ?: ""
+
+    /** Sign in against the control plane and remember the token. */
+    fun signIn(baseUrl: String, email: String) {
+        val url = baseUrl.trim()
+        val mail = email.trim()
+        if (url.isBlank() || mail.isBlank()) {
+            _uiState.value = _uiState.value.copy(message = "Enter server URL and email")
+            return
+        }
+        _uiState.value = _uiState.value.copy(busy = true, message = null)
+        viewModelScope.launch {
+            val result = withContext(Dispatchers.IO) { ApiClient(url).login(mail) }
+            when (result) {
+                is ApiResult.Ok -> {
+                    prefs.edit()
+                        .putString(KEY_BASE_URL, url)
+                        .putString(KEY_TOKEN, result.value)
+                        .putString(KEY_EMAIL, mail)
+                        .apply()
+                    _uiState.value = _uiState.value.copy(
+                        busy = false, signedIn = true, email = mail,
+                        message = "Signed in — tap “Get server”",
+                    )
+                }
+                is ApiResult.Err -> _uiState.value =
+                    _uiState.value.copy(busy = false, message = result.message)
+            }
+        }
+    }
+
+    /** Ask the gateway to provision this device and store the returned config. */
+    fun provisionServer() {
+        val url = prefs.getString(KEY_BASE_URL, null)
+        val token = prefs.getString(KEY_TOKEN, null)
+        if (url == null || token == null) {
+            _uiState.value = _uiState.value.copy(message = "Sign in first")
+            return
+        }
+        _uiState.value = _uiState.value.copy(busy = true, message = null)
+        viewModelScope.launch {
+            val result = withContext(Dispatchers.IO) {
+                ApiClient(url).provisionDevice(token, android.os.Build.MODEL ?: "device")
+            }
+            when (result) {
+                is ApiResult.Ok -> {
+                    prefs.edit().putString(KEY_CONFIG, result.value.trim()).apply()
+                    _uiState.value = _uiState.value.copy(
+                        busy = false, hasConfig = true,
+                        message = "Server ready — tap to connect",
+                    )
+                }
+                is ApiResult.Err -> _uiState.value =
+                    _uiState.value.copy(busy = false, message = result.message)
+            }
+        }
+    }
+
+    fun signOut() {
+        prefs.edit().remove(KEY_TOKEN).remove(KEY_EMAIL).apply()
+        _uiState.value = _uiState.value.copy(signedIn = false, email = null, message = "Signed out")
+    }
 
     /** Called once the OS VPN consent has been granted. */
     fun toggle() {
@@ -133,5 +204,8 @@ class VpnViewModel(app: Application) : AndroidViewModel(app) {
     companion object {
         private const val PREFS = "hausvpn"
         private const val KEY_CONFIG = "wg_config"
+        private const val KEY_BASE_URL = "base_url"
+        private const val KEY_TOKEN = "token"
+        private const val KEY_EMAIL = "email"
     }
 }

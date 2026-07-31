@@ -1,0 +1,19 @@
+{
+  "name": "hausvpn-backend",
+  "version": "1.0.0",
+  "description": "HausVPN control plane + WireGuard gateway manager",
+  "type": "module",
+  "main": "src/server.js",
+  "scripts": {
+    "start": "node src/server.js",
+    "dev": "node --watch src/server.js"
+  },
+  "engines": {
+    "node": ">=20"
+  },
+  "dependencies": {
+    "better-sqlite3": "^11.3.0",
+    "express": "^4.21.0"
+  },
+  "license": "UNLICENSED"
+}
