@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+Disallow: /delete-account.html
+
+Sitemap: https://hausvpn.com/sitemap.xml
